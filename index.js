@@ -177,7 +177,7 @@ window.onload = function() {
             chat_input.focus()
           }
         }else{
-          chat_input_send.classList.remove('enabled')
+          //chat_input_send.classList.remove('enabled')
         }
       }
 
