@@ -149,7 +149,7 @@ window.onload = function() {
       var chat_input_send = document.createElement('button')
       chat_input_send.setAttribute('id', 'chat_input_send')
       chat_input_send.setAttribute('disabled', true)
-      chat_input_send.innerHTML = `<i class="far fa-paper-plane"></i>`
+      chat_input_send.innerHTML = `<i class="far fa-paper-plane">Send</i>`
 
       var chat_input = document.createElement('input')
       chat_input.setAttribute('id', 'chat_input')
@@ -177,7 +177,7 @@ window.onload = function() {
             chat_input.focus()
           }
         }else{
-          //chat_input_send.classList.remove('enabled')
+          chat_input_send.classList.remove('enabled')
         }
       }
 
