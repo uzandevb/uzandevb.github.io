@@ -1,7 +1,7 @@
 
 window.onload = function() {
 
-  //mengkoneksikan firebase
+  //connection to firebase
   const firebaseConfig = {
     apiKey: "AIzaSyBb_Gw57RKiUjEDdnhnW8s5NlRAewObDUY",
     authDomain: "chat-app-dpst.firebaseapp.com",
@@ -11,30 +11,27 @@ window.onload = function() {
     messagingSenderId: "1071544552933",
     appId: "1:1071544552933:web:b9a26087d30346749ff30c"
   };
-  // Inisialisasi Firebase
+  // initialization firebase
   firebase.initializeApp(firebaseConfig);
 
-  // Penting, penggunaan database
+  // warning, usable of database
   var db = firebase.database()
 
-  // penggunaan OOP
-  class MEME_CHAT{
-    // Home() is used to create the home page
+  // oop
+  class GYM_BROS{
+    //Homepage
     home(){
-      // First clear the body before adding in
-      // a title and the join form
       document.body.innerHTML = ''
       this.create_title()
       this.create_join_form()
     }
-    // chat() is used to create the chat page
+    // chat page
     chat(){
       this.create_title()
       this.create_chat()
     }
-    // create_title() is used to create the title
+    // create title
     create_title(){
-      // This is the title creator. 🎉
       var title_container = document.createElement('div')
       title_container.setAttribute('id', 'title_container')
       var title_inner_container = document.createElement('div')
@@ -50,7 +47,7 @@ window.onload = function() {
     }
     // create_join_form() creates the join form
     create_join_form(){
-      // YOU MUST HAVE (PARENT = THIS). OR NOT. I'M NOT YOUR BOSS!😂
+      // inisialisasi parent
       var parent = this;
 
       var join_container = document.createElement('div')
@@ -71,8 +68,10 @@ window.onload = function() {
       var join_input = document.createElement('input')
       join_input.setAttribute('id', 'join_input')
       join_input.setAttribute('maxlength', 15)
-      join_input.placeholder = 'Your name please??'
+      join_input.placeholder = 'Your name please?'
+
       // Every time we type into the join_input
+
       join_input.onkeyup  = function(){
         // If the input we have is longer that 0 letters
         if(join_input.value.length > 0){
@@ -86,7 +85,7 @@ window.onload = function() {
             // Remove the join_container. So the site doesn't look weird.
             join_container.remove()
             // parent = this. But it is not the join_button
-            // It is (MEME_CHAT = this).
+            // It is (GYM_BROS = this).
             parent.create_chat()
           }
         }else{
@@ -104,11 +103,12 @@ window.onload = function() {
       document.body.append(join_container)
     }
     // create_load() creates a loading circle that is used in the chat container
+
     create_load(container_id){
-      // YOU ALSO MUST HAVE (PARENT = THIS). BUT IT'S WHATEVER THO.
+      // parent = this
       var parent = this;
 
-      // This is a loading function. Something cool to have.
+      // cool loading
       var container = document.getElementById(container_id)
       container.innerHTML = ''
 
@@ -122,11 +122,12 @@ window.onload = function() {
       container.append(loader_container)
 
     }
+
     // create_chat() creates the chat container and stuff
+
     create_chat(){
-      // Again! You need to have (parent = this)
       var parent = this;
-      // GET THAT MEMECHAT HEADER OUTTA HERE
+      // GET THAT HEADER
       var title_container = document.getElementById('title_container')
       var title = document.getElementById('title')
       title_container.classList.add('chat_title_container')
@@ -212,9 +213,8 @@ window.onload = function() {
     send_message(message){
       var parent = this
       // if the local storage name is null and there is no message
-      // then return/don't send the message. The user is somehow hacking
-      // to send messages. Or they just deleted the
-      // localstorage themselves. But hacking sounds cooler!!
+      // then return/don't send the message.
+      // to send messages. Or t
       if(parent.get_name() == null && message == null){
         return
       }
@@ -257,9 +257,6 @@ window.onload = function() {
           return
         }
 
-        // OK! SO IF YOU'RE A ROOKIE CODER. THIS IS GOING TO BE
-        // SUPER EASY-ISH! I THINK. MAYBE NOT. WE'LL SEE!
-
         // convert the message object values to an array.
         var messages = Object.values(messages_object.val());
         var guide = [] // this will be our guide to organizing the messages
@@ -273,7 +270,6 @@ window.onload = function() {
           unordered.push([messages[i], messages[i].index]);
         }
 
-        // Now this is straight up from stack overflow 🤣
         // Sort the unordered messages by the guide
         guide.forEach(function(key) {
           var found = false
@@ -289,7 +285,7 @@ window.onload = function() {
           })
         })
 
-        // Now we're done. Simply display the ordered messages
+        //Simply display the ordered messages
         ordered.forEach(function(data) {
           var name = data.name
           var message = data.message
@@ -327,8 +323,9 @@ window.onload = function() {
 
     }
   }
-  // So we've "built" our app. Let's make it work!!
-  var app = new MEME_CHAT()
+  // built the app
+  
+  var app = new GYM_BROS()
   // If we have a name stored in localStorage.
   // Then use that name. Otherwise , if not.
   // Go to home.
