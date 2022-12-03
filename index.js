@@ -31,6 +31,7 @@ window.onload = function() {
       this.create_chat()
     }
     // create title
+    
     create_title(){
       var title_container = document.createElement('div')
       title_container.setAttribute('id', 'title_container')
@@ -39,12 +40,13 @@ window.onload = function() {
 
       var title = document.createElement('h1')
       title.setAttribute('id', 'title')
-      title.textContent = 'WE GO JIM'
+      //title.textContent = 'Firebase'
 
       title_inner_container.append(title)
       title_container.append(title_inner_container)
       document.body.append(title_container)
     }
+
     // create_join_form() creates the join form
     create_join_form(){
       // inisialisasi parent
@@ -60,7 +62,7 @@ window.onload = function() {
 
       var join_button = document.createElement('button')
       join_button.setAttribute('id', 'join_button')
-      join_button.innerHTML = 'Join <i class="fas fa-sign-in-alt"></i>'
+      join_button.innerHTML = 'Join Chat <i class="fas fa-sign-in-alt"></i>'
 
       var join_input_container = document.createElement('div')
       join_input_container.setAttribute('id', 'join_input_container')
