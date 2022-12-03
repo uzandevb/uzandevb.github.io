@@ -1,4 +1,3 @@
-
 window.onload = function() {
 
   //connection to firebase
@@ -18,33 +17,15 @@ window.onload = function() {
   var db = firebase.database()
 
   // oop
-  class GYM_BROS{
+  class WorldCupChat{
     //Homepage
     home(){
       document.body.innerHTML = ''
-      this.create_title()
       this.create_join_form()
     }
     // chat page
     chat(){
-      this.create_title()
       this.create_chat()
-    }
-    // create title
-    
-    create_title(){
-      var title_container = document.createElement('div')
-      title_container.setAttribute('id', 'title_container')
-      var title_inner_container = document.createElement('div')
-      title_inner_container.setAttribute('id', 'title_inner_container')
-
-      var title = document.createElement('h1')
-      title.setAttribute('id', 'title')
-      //title.textContent = 'Firebase'
-
-      title_inner_container.append(title)
-      title_container.append(title_inner_container)
-      document.body.append(title_container)
     }
 
     // create_join_form() creates the join form
@@ -87,7 +68,7 @@ window.onload = function() {
             // Remove the join_container. So the site doesn't look weird.
             join_container.remove()
             // parent = this. But it is not the join_button
-            // It is (GYM_BROS = this).
+            // It is (WorldCupChat = this).
             parent.create_chat()
           }
         }else{
@@ -130,11 +111,6 @@ window.onload = function() {
     create_chat(){
       var parent = this;
       // GET THAT HEADER
-      var title_container = document.getElementById('title_container')
-      var title = document.getElementById('title')
-      title_container.classList.add('chat_title_container')
-      // Make the title smaller by making it 'chat_title'
-      title.classList.add('chat_title')
 
       var chat_container = document.createElement('div')
       chat_container.setAttribute('id', 'chat_container')
@@ -327,7 +303,7 @@ window.onload = function() {
   }
   // built the app
   
-  var app = new GYM_BROS()
+  var app = new WorldCupChat()
   // If we have a name stored in localStorage.
   // Then use that name. Otherwise , if not.
   // Go to home.
